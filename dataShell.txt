@@ -1,0 +1,12 @@
+python manage.py shell
+
+from booking.models import Guest, Reservation
+from datetime import date
+
+# Crear huéspedes
+guest1 = Guest.objects.create(first_name="Alice", last_name="Johnson", email="alice@example.com", phone="1234567890")
+guest2 = Guest.objects.create(first_name="Bob", last_name="Smith", email="bob@example.com", phone="0987654321")
+
+# Crear reservas
+Reservation.objects.create(room_number="101", check_in=date(2024, 12, 15), check_out=date(2024, 12, 20), guest=guest1, total_price=500.00)
+Reservation.objects.create(room_number="102", check_in=date(2024, 12, 16), check_out=date(2024, 12, 21), guest=guest2, total_price=600.00)
